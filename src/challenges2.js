@@ -4,7 +4,7 @@ function techList(tech, name) {
   let array = [];
   let saida = '';
   for (let index = 0; index < tech.length; index += 1) {
-    array.push({ tech: tech[index], name: name }); 
+    array.push({ tech: tech[index], name: name });
   }
   if (array.length === 0) {
     saida = 'Vazio!';
@@ -39,7 +39,7 @@ function generatePhoneNumber(numeroArray) {
   let numero2 = '';
 
   for (let i = 0; i < numeroArray.length; i += 1) {
-      if (validaNumero(numeroArray) === true) {
+    if (validaNumero(numeroArray) === true) {
       numero2 = 'não é possível gerar um número de telefone com esses valores';
       break;
     } else if (i <= 1) {
@@ -63,13 +63,34 @@ function generatePhoneNumber(numeroArray) {
 }
 
 // Desafio 12
-function triangleCheck() {
-  // seu código aqui
+function triangleCheck(lineA, lineB, lineC) {
+  let soma1 = lineA + lineB;
+  let soma2 = lineA + lineC;
+  let soma3 = lineB + lineC;
+  let resultado = Boolean;
+
+  if (soma1 < lineC || soma2 < lineB || soma3 < lineA) {
+    resultado = false;
+  } else {
+    resultado = true;
+  }
+  return resultado;
 }
 
 // Desafio 13
-function hydrate() {
-  // seu código aqui
+function hydrate(string) {
+  let arrayBebida = string.match(/\d/g);
+  let count = 0;
+  let stringRetorno = '';
+  for (let i = 0; i < arrayBebida.length; i += 1) {
+    count += parseInt(arrayBebida[i], 10);
+  }
+  if (count <= 1) {
+    stringRetorno = `${count} copo de água`;
+  } else {
+    stringRetorno = `${count} copos de água`;
+  }
+  return stringRetorno;
 }
 
 module.exports = {
